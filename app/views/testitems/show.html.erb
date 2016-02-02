@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @testitem.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @testitem.description %>
+</p>
+
+<%= link_to 'Edit', edit_testitem_path(@testitem) %> |
+<%= link_to 'Back', testitems_path %>
