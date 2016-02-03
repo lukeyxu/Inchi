@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @testlot.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @testlot.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @testlot.status %>
+</p>
+
+<%= link_to 'Edit', edit_testlot_path(@testlot) %> |
+<%= link_to 'Back', testlots_path %>

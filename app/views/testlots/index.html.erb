@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Testlots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @testlots.each do |testlot| %>
+      <tr>
+        <td><%= testlot.name %></td>
+        <td><%= testlot.description %></td>
+        <td><%= testlot.status %></td>
+        <td><%= link_to 'Show', testlot %></td>
+        <td><%= link_to 'Edit', edit_testlot_path(testlot) %></td>
+        <td><%= link_to 'Destroy', testlot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Testlot', new_testlot_path %>
