@@ -15,6 +15,8 @@ set :deploy_to, '/home/deploy/Inchi'
 # Default value for :scm is :git
 # set :scm, :git
 
+load 'deploy/assets'
+
 set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
