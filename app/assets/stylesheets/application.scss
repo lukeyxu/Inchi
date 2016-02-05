@@ -55,7 +55,7 @@
 	a{
 	    color: white;
 	    text-decoration: none;
-	    font-size: 22px;
+	    font-size: 19px;
 	    padding: 10px;
 	}
 	a:hover{
@@ -119,6 +119,11 @@
 	h3{
 		color: white;
 	}
+}
+
+.wrapper{
+	max-width: 1300px;
+	overflow: auto;
 }
 
 .img-wrapper{
