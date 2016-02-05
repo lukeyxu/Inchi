@@ -15,5 +15,8 @@
   <%= @testlot.status %>
 </p>
 
+<%= image_tag @testlot.image.url(:medium) %>
+<br>
+
 <%= link_to 'Edit', edit_testlot_path(@testlot) %> |
 <%= link_to 'Back', testlots_path %>

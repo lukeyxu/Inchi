@@ -1,4 +1,4 @@
-<%= form_for(@testlot) do |f| %>
+<%= form_for @testlot, html: { multipart: true } do |f| %>
   <% if @testlot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@testlot.errors.count, "error") %> prohibited this testlot from being saved:</h2>
@@ -22,6 +22,10 @@
   <div class="field">
     <%= f.label :status %><br>
     <%= f.check_box :status %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>
