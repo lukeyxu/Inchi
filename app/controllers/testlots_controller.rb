@@ -1,5 +1,6 @@
 class TestlotsController < ApplicationController
   before_action :set_testlot, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except:[:index, :show]
 
   # GET /testlots
   # GET /testlots.json
@@ -10,6 +11,7 @@ class TestlotsController < ApplicationController
   # GET /testlots/1
   # GET /testlots/1.json
   def show
+    @testphotos = @testlot.testphotos
   end
 
   # GET /testlots/new
@@ -28,6 +30,13 @@ class TestlotsController < ApplicationController
 
     respond_to do |format|
       if @testlot.save
+        if params[:images]
+          #===== The magic is here ;)
+          params[:images].each { |image|
+            @testlot.testphotos.create(image: image)
+          }
+        end
+
         format.html { redirect_to @testlot, notice: 'Testlot was successfully created.' }
         format.json { render :show, status: :created, location: @testlot }
       else
