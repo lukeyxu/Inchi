@@ -31,7 +31,7 @@ class TestlotsController < ApplicationController
     respond_to do |format|
       if @testlot.save
         if params[:images]
-          #===== The magic is here ;)
+
           params[:images].each { |image|
             @testlot.testphotos.create(image: image)
           }

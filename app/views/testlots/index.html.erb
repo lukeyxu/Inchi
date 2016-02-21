@@ -1,8 +1,25 @@
 <div class="section-nav">
-  <h2>Item Listing</h2>
+  <h2>Inchi</h2>
+  <nav class="lots_nav">
+    <div class="mainnav">
+      <a href="">Apartment Info</a>
+      <a href="">Classfied</a>
+    </div>
+    <div class="loginnav">
+<%if !user_signed_in?%>
+      <a href="/login">Log in</a>
+      <a href="/signup">Sign up</a>
+<% end %>
+<%if user_signed_in?%>
+      <a href="">Welcome</a>
+      <a href="/logout">Sign out</a>
+<% end %>
+    </div>
+  </nav>
 </div>
 <p id="notice"><%= notice %></p>
 <div class="container">
+<h1>Item Listing</h1>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>

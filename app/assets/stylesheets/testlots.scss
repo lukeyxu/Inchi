@@ -4,10 +4,41 @@
 .section-nav{
 	overflow: auto;
 	background: #F36D6D;
+	height: 50px;
 	h2{
 		margin-top:10px;
 		margin-bottom:10px;
-		text-align: center;
+		margin-left:10px;
 		color: white;
+		float: left;
+	};
+}
+
+.lots_nav{
+	margin-right: 100px;
+	height: 100%;
+	width: 544px;
+	float: right;
+	a{
+	    font-size: 21px;
+	    display: inline-block;
+	    padding: 8px 10px;
+	    color: white;
+	    border-left: 5px solid #F36D6D;
 	}
+	a:hover{
+		border-left: 5px solid white;
+		color: white;
+		text-decoration: none;
+		-webkit-transition: .4s ease-in-out;
+		transition: .4s ease-in-out;
+	}
+}
+
+.mainnav{
+	float: left;
+}
+
+.loginnav{
+	float: right;
 }

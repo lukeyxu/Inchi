@@ -1,6 +1,6 @@
-class Testlot < ActiveRecord::Base
+class Lot < ActiveRecord::Base
 	belongs_to :user
 	has_attached_file :image, styles: { large: "600x600", medium:"300x300", thumb: "100x100" }
-	has_many :testphotos, :dependent => :destroy
+	has_many :photos, :dependent => :destroy
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end

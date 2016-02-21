@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :lots
   resources :testlots
   devise_for :users
   resources :testitems
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     get "/signup" => "devise/registrations#new"
+    get "/logout" => "devise/sessions#destroy"
   end
 
 
