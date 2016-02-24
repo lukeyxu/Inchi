@@ -11,7 +11,8 @@ class LotsController < ApplicationController
   # GET /lots/1
   # GET /lots/1.json
   def show
-    @photos = @lot.photos
+    @first2 = @lot.photos.first(2)
+    @photos = @lot.photos.offset(2)
   end
 
   # GET /lots/new

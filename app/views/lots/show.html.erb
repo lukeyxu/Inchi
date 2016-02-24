@@ -1,14 +1,108 @@
+<section class="lotsection">
+<%= render 'nav' %>
+<div class="intro">
+	<div class="introcontent">
+		<h2><%= @lot.title %></h2>
+		<br/>
+		<h4>About this listing</h4>
+		<div><%= @lot.description %></div>
+		
+	</div>
+</div>
+<br/>
+<div  class="lotdetail">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="detail-icon">
+				<div class="fa fa-truck"></div>
+				<h4>Pick up only</h4>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="detail-icon">
+				<div class="fa fa-phone"></div>
+				<h4>(888)-888-8888</h4>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="detail-icon">
+				<div class="fa fa-envelope-o"></div>
+				<h4>luke@gmail.com</h4>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="detail-icon">
+				<div class="fa fa-weixin"></div>
+				<h4>IcyLuke</h4>
+			</div>
+		</div>		
+	</div>
+<br/>
+<br/>
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="lotgallery">
+<div id="links">
+	<% unless @photos.empty? %>
+	  <% @first2.each do |pic| %>
+	  	<div class="col-md-6 lotimg">
+    	<%= link_to image_tag(pic.image.url(:showpic)), pic.image.url(:huge), :data=> { :gallery =>"" } %>	
+		</div>
+	  <% end %>
+
+	  <% @photos.each do |pic| %>
+	  	<div class="col-md-4 lotimg">
+    	<%= link_to image_tag(pic.image.url(:medium)), pic.image.url(:huge), :data=> { :gallery =>"" } %>		
+		</div>
+
+	  <% end %>
+	<% end %>
+
+</div>
+</div>
+	
+</div>
+<br/>
+
+
+<br/>
+</section>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @lot.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @lot.description %>
-</p>
 
 <p>
   <strong>Status:</strong>
@@ -18,26 +112,7 @@
 <%= image_tag @lot.image.url(:medium) %>
 <br>
 
-<h2>Photos</h2>
-<div class="row">
-  <ul class="thumbnails files">
-	<% unless @photos.empty? %>
-	  <% @photos.each do |pic| %>
-	    <li class="span3" id="picture_<%= pic.id %>">
-	    <div class="thumbnail">
-	      <%= image_tag pic.image.url(:medium) %>
-	      <div class="caption">
-	        <p style="text-align: center;">
-
-
-	        </p>
-	      </div>
-	    </div>
-	    </li>
-	  <% end %>
-	<% end %>
-  </ul>
-</div>
 
 <%= link_to 'Edit', edit_lot_path(@lot) %> |
 <%= link_to 'Back', lots_path %>
+</section>

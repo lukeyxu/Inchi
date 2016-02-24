@@ -1,0 +1,23 @@
+---
+:Lot:
+  :image:
+  - :large
+  - :medium
+  - :thumb
+:Photo:
+  :image:
+  - :huge
+  - :large
+  - :medium
+  - :showpic
+  - :thumb
+:Testlot:
+  :image:
+  - :large
+  - :medium
+  - :thumb
+:Testphoto:
+  :image:
+  - :large
+  - :medium
+  - :thumb

@@ -1,0 +1,19 @@
+<div class="section-nav">
+  <h2>Inchi</h2>
+  <nav class="lots_nav">
+    <div class="mainnav">
+      <a href="">Apartment Info</a>
+      <a href="">Classfied</a>
+    </div>
+    <div class="loginnav">
+<%if !user_signed_in?%>
+      <a href="/login" class="authnav">Log in</a>
+      <a href="/signup" class="authnav">Sign up</a>
+<% end %>
+<%if user_signed_in?%>
+      <span><%= current_user.firstname %>, welcome!</span>
+      <a href="/logout" class="authnav">Sign out</a>
+<% end %>
+    </div>
+  </nav>
+</div>
