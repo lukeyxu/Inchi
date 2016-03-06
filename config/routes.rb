@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :testitems
   root "welcome#index"
   get '/items', to: 'lots#index'
+  get '/dashboard', to: 'dashboard#index'
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     get "/signup" => "devise/registrations#new"

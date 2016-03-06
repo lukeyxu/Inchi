@@ -1,0 +1,51 @@
+<%= render 'nav' %>
+<section class="sect">
+<br/>
+<div class="container">
+	<div class="row">
+			<div class="col s12 m6">
+				<div class="dashone backcolor">
+					<div class="dash-inner">
+						<h3>Welcome back, <%= current_user.firstname %></h3>
+						
+					</div>
+				</div>				
+			</div>
+			<div class="col s12 m6">
+				<div class="dashthree">
+					<div class="col s12 recent-post backcolor" style="font-size: 20px;
+    color: #8B8B8B;">Recent Posts</div>
+					<% @mylist.each do |list| %>
+					<div class="col s12 recent-post backcolor">
+						<%= link_to list do %>
+						<p class="left"><%= list.title %></p>
+						<p class="right"><%= list.created_at.strftime('%F') %></p>
+						<% end %>
+					</div>
+					<% end %>
+				</div>					
+			</div>	
+			<div class="col s12 m6">
+				<div class="col s12 dashtwo backcolor ">
+					<%= link_to 'lots/new' do %>
+						<i class="large material-icons dash-icon ">work</i>
+						<h5>Sell new item</h5>
+					<% end %>
+				</div>
+				<div class="col s6 dashtwo backcolor">
+					
+				</div>
+				<div class="col s6 dashtwo backcolor"></div>			
+			</div>	
+			<div class="col s12 m6">
+				<div class="dashtwo backcolor">
+					
+				</div>					
+			</div>	
+	</div>
+</div>
+</section>
+
+
+	
+	

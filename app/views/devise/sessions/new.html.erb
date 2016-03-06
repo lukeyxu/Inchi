@@ -1,9 +1,23 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">JavaScript</a></li>
+    </ul>
+  </div>
+</nav>
+<br/>
+<br/>        
+<div class="login_wrapper">
 <h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<%= form_for(resource, :html => {:class => "col s3"}, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row">
+    <div class="input-field">
+      <%= f.email_field :email, :class => 'validate',autofocus: true %>
+      <%= f.label :email %>
+    </div>
   </div>
 
   <div class="field">
@@ -17,10 +31,14 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
+  <br/>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in" , :class => 'waves-effect waves-light btn' %>
   </div>
 <% end %>
+</div>
+
+
 
 <%= render "devise/shared/links" %>
