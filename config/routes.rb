@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :lots
   resources :testlots
+  resources :photos
   devise_for :users
   resources :testitems
   root "welcome#index"

@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$themecolor:#F36D6D;
+
 .dashone{
 	height: 400px;
 	margin-bottom: 10px;
@@ -46,7 +48,7 @@
 
 .dashtwo:hover{
 /*	opacity: 0.7;*/
-	background:#7A7A7A;
+	background:$themecolor;
 	i,h5{
 		color:white;
 	}
@@ -66,4 +68,5 @@
     display: block !important;
     margin: 25px auto;
     font-size: 50px !important;
+    color:$themecolor;
 }

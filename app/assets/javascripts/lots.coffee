@@ -4,3 +4,4 @@
 
 $(document).on "page:change", ->
   $(".dropdown-button").dropdown();
+  $('input, textarea').characterCounter();

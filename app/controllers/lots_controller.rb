@@ -22,6 +22,7 @@ class LotsController < ApplicationController
 
   # GET /lots/1/edit
   def edit
+    @photos = @lot.photos
   end
 
   # POST /lots
@@ -49,8 +50,15 @@ class LotsController < ApplicationController
   # PATCH/PUT /lots/1
   # PATCH/PUT /lots/1.json
   def update
+
     respond_to do |format|
       if @lot.update(lot_params)
+        if params[:images]
+          # The magic is here ;)
+          params[:images].each { |image|
+            @lot.photos.create(image: image)
+          }
+        end
         format.html { redirect_to @lot, notice: 'Lot was successfully updated.' }
         format.json { render :show, status: :ok, location: @lot }
       else

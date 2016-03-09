@@ -10,22 +10,33 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field form-group">
-    <%= f.label :title, :class => 'control-label' %><br>
-    <%= f.text_field :title, :class => 'form-control'%>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :title, :class => 'validate', :placeholder => "Listing Name" %>
+            <%= f.label :title %><br>
+    </div>
   </div>
-  <div class="field form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, :class => 'form-control' %>
+  <div class="row">
+    <div class="input-field col s12">
+    <%= f.text_area :description, :class => 'materialize-textarea' %>
+            <%= f.label :description %><br>
+    </div>
   </div>
   <div class="field form-group">
     <%= f.label :status %><br>
     <%= f.text_field :status, :class => 'form-control' %>
   </div>
   <div class="field form-group">
-    <%= f.label :image %><br>
-    <%= f.file_field :image, :class => 'form-control' %>
+
+    <div class="file-field input-field">
+      <div class="btn d-backcolor">
+        <span>Image</span>
+        <input type="file" name="lot[image]" id="lot_image">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
   </div>
   <div class="control-group">
     <%= f.label :photos, :class => 'control-label' %>
@@ -37,6 +48,29 @@
     <%= file_field_tag "images[]", type: :file, multiple: true %>
     </div>
   </div>
+
+  <% if @photos %>
+    <div class="row">
+    <% @photos.each do |pic| %>
+      <div class="col s3">
+        <div class="row">
+            <div class="col s12 lotimg">
+            <%= link_to image_tag(pic.image.url(:showpic)), pic.image.url(:huge), :data=> { :gallery =>"" } %>  
+            </div>
+            <div class="col s12">
+              <%=
+                link_to "Delete picture", pic,
+                  :data => { :confirm => "Are you sure?" },
+                  :method => :delete
+                %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    </div>
+  <% end %>
+
+
   <br>
   <div class="actions form-group">
     <%= f.submit %>
