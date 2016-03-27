@@ -26,9 +26,9 @@
     <%= f.label :status %><br>
     <%= f.text_field :status, :class => 'form-control' %>
   </div>
+  <div class="row">
   <div class="field form-group">
-
-    <div class="file-field input-field">
+    <div class="file-field input-field col s6">
       <div class="btn d-backcolor">
         <span>Image</span>
         <input type="file" name="lot[image]" id="lot_image">
@@ -37,6 +37,7 @@
         <input class="file-path validate" type="text">
       </div>
     </div>
+  </div>
   </div>
   <div class="control-group">
     <%= f.label :photos, :class => 'control-label' %>

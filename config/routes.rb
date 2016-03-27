@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :apartments do
+    collection do
+      get 'admin'
+    end
+  end
   resources :lots
   resources :testlots
   resources :photos
@@ -6,6 +11,7 @@ Rails.application.routes.draw do
   resources :testitems
   root "welcome#index"
   get '/items', to: 'lots#index'
+  get '/apartments', to: 'apartments#index'
   get '/dashboard', to: 'dashboard#index'
   devise_scope :user do
     get "/login" => "devise/sessions#new"

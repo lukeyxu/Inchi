@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Lookforroomate</th>
+      <th>Sublease</th>
+      <th>Bedroom</th>
+      <th>Contact</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apartments.each do |apartment| %>
+      <tr>
+        <td><%= apartment.title %></td>
+        <td><%= apartment.description %></td>
+        <td><%= apartment.lookforroomate %></td>
+        <td><%= apartment.sublease %></td>
+        <td><%= apartment.bedroom %></td>
+        <td><%= apartment.contact %></td>
+        <td><%= link_to 'Show', apartment %></td>
+        <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
+        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

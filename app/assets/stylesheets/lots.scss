@@ -132,7 +132,27 @@
 }
 
 .lotimg{
-	height: 200px;
+	height: 175px;
 	overflow: hidden;
 	margin-bottom: 5px;
 }
+
+.lot-title{
+	display: inline-block;
+}
+
+.lot-delete{
+	font-size: 17px;
+	color:#D95D5D;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+
+.lot-edit{
+	font-size: 17px;
+	color:#5D7AD9;
+	display: inline-block;
+	margin-left: 10px;
+}
+

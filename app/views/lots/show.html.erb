@@ -2,41 +2,53 @@
 <%= render 'nav' %>
 <div class="intro">
 	<div class="introcontent">
-		<h2><%= @lot.title %></h2>
+		<h2 class="lot-title"><%= @lot.title %></h2>
+		<%if user_signed_in?%>
+			<% if current_user.id == @lot.user_id %>
+				<%= link_to 'Edit', edit_lot_path(@lot),{'data-no-turbolink' => "",'class' => 'lot-edit'} %> 
+				<%= link_to 'Destroy', @lot, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'lot-delete'%>
+			<% end %>
+		<% end %>
+		<br/>
 		<br/>
 		<h4>About this listing</h4>
 		<div><%= @lot.description %></div>
-		
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div class="row">
+			<div class="col s3">
+				<div class="detail-icon">
+					<div class="fa fa-truck"></div>
+					<h4>Pick up only</h4>
+				</div>
+			</div>
+			<div class="col s3">
+				<div class="detail-icon">
+					<div class="fa fa-phone"></div>
+					<h4>(888)-888-8888</h4>
+				</div>
+			</div>
+			<div class="col s3">
+				<div class="detail-icon">
+					<div class="fa fa-envelope-o"></div>
+					<h4>luke@gmail.com</h4>
+				</div>
+			</div>
+			<div class="col s3">
+				<div class="detail-icon">
+					<div class="fa fa-weixin"></div>
+					<h4>IcyLuke</h4>
+				</div>
+			</div>		
+		</div>		
 	</div>
+
 </div>
 <br/>
 <div  class="lotdetail">
-	<div class="row">
-		<div class="col-md-3">
-			<div class="detail-icon">
-				<div class="fa fa-truck"></div>
-				<h4>Pick up only</h4>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="detail-icon">
-				<div class="fa fa-phone"></div>
-				<h4>(888)-888-8888</h4>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="detail-icon">
-				<div class="fa fa-envelope-o"></div>
-				<h4>luke@gmail.com</h4>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="detail-icon">
-				<div class="fa fa-weixin"></div>
-				<h4>IcyLuke</h4>
-			</div>
-		</div>		
-	</div>
+
 <br/>
 <br/>
 <div id="blueimp-gallery" class="blueimp-gallery">
@@ -77,9 +89,10 @@
 
 <div class="lotgallery">
 <div id="links">
+<div class="row">
 	<% unless @first2.empty? %>
 	  <% @first2.each do |pic| %>
-	  	<div class="col-md-6 lotimg">
+	  	<div class="col s6 lotimg">
     	<%= link_to image_tag(pic.image.url(:showpic)), pic.image.url(:huge), :data=> { :gallery =>"" } %>	
 		</div>
 	  <% end %>
@@ -87,13 +100,13 @@
 
 	<% unless @photos.empty? %>
 	  <% @photos.each do |pic| %>
-	  	<div class="col-md-4 lotimg">
+	  	<div class="col s4 lotimg">
     	<%= link_to image_tag(pic.image.url(:medium)), pic.image.url(:huge), :data=> { :gallery =>"" } %>		
 		</div>
 
 	  <% end %>
 	<% end %>
-
+</div>
 </div>
 </div>
 	

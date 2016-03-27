@@ -11,10 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222030331) do
+ActiveRecord::Schema.define(version: 20160327210556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apart_photos", force: :cascade do |t|
+    t.integer  "apartment_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "apart_photos", ["apartment_id"], name: "index_apart_photos_on_apartment_id", using: :btree
+
+  create_table "apartments", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "lookforroomate"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+    t.string   "bedroomtype"
+    t.boolean  "subleasing"
+    t.boolean  "pet"
+    t.integer  "bedroomamount"
+    t.string   "address"
+    t.string   "contactemail"
+    t.string   "contactwechat"
+    t.string   "contactqq"
+    t.string   "contactphone"
+    t.integer  "rent"
+  end
 
   create_table "lots", force: :cascade do |t|
     t.string   "title"
@@ -94,6 +125,7 @@ ActiveRecord::Schema.define(version: 20160222030331) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "apart_photos", "apartments"
   add_foreign_key "photos", "lots"
   add_foreign_key "testphotos", "testlots"
 end

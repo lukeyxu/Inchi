@@ -1,5 +1,6 @@
 class LotsController < ApplicationController
   before_action :set_lot, only: [:show, :edit, :update, :destroy]
+  before_action :belong_to, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except:[:index, :show]
 
   # GET /lots
@@ -19,6 +20,12 @@ class LotsController < ApplicationController
   def new
     @lot = current_user.lots.build
   end
+
+  # GET /lots/admin
+  def admin
+    @lots = Lot.all
+  end
+
 
   # GET /lots/1/edit
   def edit
@@ -82,6 +89,19 @@ class LotsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_lot
       @lot = Lot.find(params[:id])
+    end
+
+    def belong_to
+      @lot = Lot.find(params[:id])
+      if user_signed_in?
+        if current_user.id !=  @lot.user_id
+          flash[:error] = "This lot does not belong to you."
+          redirect_to  action: 'index'# halts request cycle
+        end
+      else
+        flash[:error] = "You must be logged in to access this section."
+        redirect_to  action: 'index'# halts request cycle
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

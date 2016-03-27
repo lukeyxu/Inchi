@@ -1,0 +1,156 @@
+<div class="form-new">
+<%= form_for @apartment, html: {  multipart: true } do |f|  %>
+  <% if @apartment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
+
+      <ul>
+      <% @apartment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :title %>
+      <%= f.label :title %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.text_area :description, {'class'=>'materialize-textarea'} %>
+      <%= f.label :description %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.text_field :address %>
+      <%= f.label :address,'Apartment address' %>
+    </div>
+  </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.check_box :subleasing,{'id '=> 'apartment_subleasing'} %>
+        <%= f.label :subleasing, "Are you subleasing entire apartment?" %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.check_box :pet,{'id '=> 'apartment_pet'} %>
+        <%= f.label :pet, "Allowing pet?" %>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.text_field :lookforroomate,{'id '=> 'apartment_lookforroomate'} %>
+        <%= f.label :lookforroomate,'How many roomates are you looking for?' %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.text_field :bedroomamount %>
+        <%= f.label :bedroomamount,'How many bedrooms does the apartment have?' %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.select(:bedroomtype, [['Bedroom', 'Bedroom'], ['Livingroom', 'Livingroom'],['Both','Both']]) %>
+        <%= f.label :bedroomtype %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.text_field :rent %>
+        <%= f.label :rent,'How much is the monthly rent?' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.label :contactemail %><br>
+        <%= f.text_field :contactemail %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :contactphone %><br>
+        <%= f.text_field :contactphone %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :contactwechat %><br>
+        <%= f.text_field :contactwechat %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :contactqq %><br>
+        <%= f.text_field :contactqq %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="file-field input-field col s6">
+        <div class="btn d-backcolor">
+          <span>Image</span>
+          <input type="file" name="images[]" id="images_" multiple="multiple">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="file-field input-field col s6">
+        <div class="btn d-backcolor">
+          <span>Image</span>
+          <input type="file" name="images[]" id="images_" multiple="multiple">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="file-field input-field col s6">
+        <div class="btn d-backcolor">
+          <span>Image</span>
+          <input type="file" name="images[]" id="images_" multiple="multiple">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="file-field input-field col s6">
+        <div class="btn d-backcolor">
+          <span>Image</span>
+          <input type="file" name="images[]" id="images_" multiple="multiple">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="file-field input-field col s6">
+        <div class="btn d-backcolor">
+          <span>Image</span>
+          <input type="file" name="images[]" id="images_" multiple="multiple">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="file-field input-field col s6">
+        <div class="btn d-backcolor">
+          <span>Image</span>
+          <input type="file" name="images[]" id="images_" multiple="multiple">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="file-field input-field col s6">
+        <div class="btn d-backcolor">
+          <span>Image</span>
+          <input type="file" name="images[]" id="images_" multiple="multiple">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="file-field input-field col s6">
+        <div class="btn d-backcolor">
+          <span>Image</span>
+          <input type="file" name="images[]" id="images_" multiple="multiple">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+
+<% end %>
+</div>

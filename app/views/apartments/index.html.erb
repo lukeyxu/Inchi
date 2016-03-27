@@ -1,0 +1,28 @@
+<section class="sect">
+<%= render 'nav' %>
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Listing Apartments</h1>
+  <div class="row">
+    <% @apartments.each do |apartment| %>
+      <div class="col s4 onelot">
+        <div class="contentwrapper">
+          <div class="imgwrapper">
+          <% if apartment.apart_photos.size >0 %>
+            <%= link_to image_tag(apartment.apart_photos.first.image.url(:large)), apartment %>
+          <% end %>
+          </div>
+          <div class="deswrapper">
+            <i>Post by <%= apartment.user.firstname %> at <%= apartment.created_at.strftime('%F') %></i>
+            <div class="lotlink"><%= link_to apartment.title, apartment %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<br/>
+
+<%= link_to 'New Apartment', new_apartment_path %>
+</section>

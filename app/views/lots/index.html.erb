@@ -1,11 +1,11 @@
-<section class="sect">
+<section class="lotsect">
 <%= render 'nav' %>
 <p id="notice"><%= notice %></p>
 <div class="container">
   <h1>Item Listing</h1>
   <div class="row">
     <% @lots.each do |lot| %>
-      <div class="col-md-4 onelot">
+      <div class="col s4 onelot">
         <div class="contentwrapper">
           <div class="imgwrapper">
   <!--           <%= image_tag lot.image.url(:large) %> -->
@@ -48,7 +48,7 @@
 
 <br>
 
-<%= link_to 'New lot', new_lot_path,{'data-no-turbolink' => ""} %>
+<%= link_to 'New lot', new_lot_path %>
 
 </div>
 </section>

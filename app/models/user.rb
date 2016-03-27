@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :testlots
   has_many :lots
+  has_many :apartments
 end

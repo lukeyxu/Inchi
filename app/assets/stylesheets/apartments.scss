@@ -1,0 +1,52 @@
+.apart-detail{
+	margin:2px 0;
+	div{
+		display:inline-block;
+		font-size: 18px;
+		margin-left:3px;
+		&:nth-child(2){
+			width:272px;
+		}
+		&:nth-child(1){
+			width:28px;
+		}
+	}
+}
+
+.apart-address{
+	margin:2px 0;
+	div{
+		display:inline-block;
+		font-size: 18px;
+		margin-left:3px;
+	}
+}
+
+.apart-contact{
+	margin:2px 0;
+	div{
+		display:inline-block;
+		font-size: 18px;
+		margin-left:3px;
+		&:nth-child(2){
+			width:86px;
+		}
+		&:nth-child(1){
+			width:28px;
+		}
+	}
+}
+
+.lotimg{
+	a{
+		img{
+			height: 100%;
+			width: 100%;
+		}
+	}
+}
+
+.form-new{
+    max-width: 695px;
+    margin: 0 auto;
+}

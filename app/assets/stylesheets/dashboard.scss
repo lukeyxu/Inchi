@@ -14,13 +14,17 @@ $themecolor:#F36D6D;
 	height: 150px;
 	border: 1px solid #F1EFEF;
 	text-align: center;
-	transition: 0.5s ease-in-out;
+	transition: 0.3s ease-in-out;
 	a:hover{
 		text-decoration: none;
 	}
 	h5{
 		color:#7A7A7A
 	}
+}
+
+.dashfour{
+	height:300px;
 }
 
 .dashthree{
@@ -36,7 +40,7 @@ $themecolor:#F36D6D;
 
 .recent-post{
 	margin: 2px 0;
-    box-shadow: 0px 1px 0px 0px;
+    box-shadow: 2px 1px 2px 0px;
     padding: 16px !important;
 	p{
 		margin-bottom: 0px;

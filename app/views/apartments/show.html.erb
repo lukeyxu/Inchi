@@ -1,0 +1,175 @@
+<section class="lotsection">
+<%= render 'nav' %>
+<div class="intro">
+  <div class="introcontent">
+    <h2 class="lot-title"><%= @apartment.title %></h2>
+    <%if user_signed_in?%>
+      <% if current_user.id == @apartment.user_id %>
+        <%= link_to 'Edit', edit_apartment_path(@apartment),{'data-no-turbolink' => "",'class' => 'lot-edit'} %> 
+        <%= link_to 'Destroy', @apartment, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'lot-delete'%>
+      <% end %>
+    <% end %>
+    <br/>
+    <br/>
+    <h4>About this apartment</h4>
+    <div><%= @apartment.description %></div>
+    <br/>
+
+    <br/>
+
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="apart-detail">
+          <div class="fa fa-user"></div>
+          <div>Looking for roomate(s):</div>
+          <div><%= @apartment.lookforroomate %></div>
+        </div>
+        <div class="apart-detail">
+          <div class="fa fa-building"></div>
+          <div>Subleasing entire apartment:</div>
+          <div><%= @apartment.subleasing == true ? 'Yes' : 'No' %></div>
+        </div>
+        <div class="apart-detail">
+          <div class="fa fa-paw"></div>
+          <div>Allowing pet:</div>
+          <div><%= @apartment.pet == true ? 'Yes' : 'No' %></div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="apart-detail">
+          <div class="fa fa-users"></div>
+          <div>Renting bedroom or living room:</div>
+          <div><%= @apartment.bedroomtype %></div>
+        </div>
+        <div class="apart-detail">
+          <div class="fa fa-bed"></div>
+          <div>Apartment Bedrooms:</div>
+          <div><%= @apartment.bedroomamount %></div>
+        </div>
+        <div class="apart-detail">
+          <div class="fa fa-money"></div>
+          <div>Monthly rent:</div>
+          <div>$<%= @apartment.rent %></div>
+        </div>
+      </div>      
+    </div>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="apart-address">
+          <div class="fa fa-map-o"></div>
+          <div>Apartment address:</div>
+          <div><%= @apartment.address %></div>
+        </div>          
+      </div>        
+    </div>
+    <br/>
+    <h4>Contact Info</h4>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="apart-contact">
+          <div class="fa fa-envelope-o"></div>
+          <div>E-mail:</div>
+          <div>luke@gmail.com</div>
+        </div>
+        <div class="apart-contact">
+          <div class="fa fa-weixin"></div>
+          <div>WeChat:</div>
+          <div>IcyLuke</div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="apart-contact">
+          <div class="fa fa-phone"></div>
+          <div>Phone:</div>
+          <div>888-888-8888</div>
+        </div>
+        <div class="apart-contact">
+          <div class="fa fa-qq"></div>
+          <div>QQ:</div>
+          <div>413841101</div>
+        </div>
+      </div>      
+    </div>
+    <br/>   
+  </div>
+
+</div>
+<br/>
+<div  class="lotdetail">
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lotgallery">
+<div id="links">
+<div class="row">
+  <% unless @first3.empty? %>
+    <% @first3.each do |pic| %>
+      <div class="col s4 lotimg">
+      <%= link_to image_tag(pic.image.url(:medium)), pic.image.url(:huge), :data=> { :gallery =>"" } %>  
+    </div>
+    <% end %>
+  <% end %>
+
+  <% unless @second2.empty? %>
+    <% @second2.each do |pic| %>
+      <div class="col s6 lotimg">
+      <%= link_to image_tag(pic.image.url(:showpic)), pic.image.url(:huge), :data=> { :gallery =>"" } %>   
+    </div>
+
+    <% end %>
+  <% end %>
+
+  <% unless @third3.empty? %>
+    <% @third3.each do |pic| %>
+      <div class="col s4 lotimg">
+      <%= link_to image_tag(pic.image.url(:medium)), pic.image.url(:huge), :data=> { :gallery =>"" } %>   
+    </div>
+
+    <% end %>
+  <% end %>
+</div>
+</div>
+</div>
+  
+</div>
+<br/>
+
+
+<br/>
+<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
+<%= link_to 'Back', apartments_path %>
+<p id="notice"><%= notice %></p>
+
+
+</section>

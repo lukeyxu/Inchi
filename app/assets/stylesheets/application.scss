@@ -13,8 +13,7 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
 @import "materialize";
 
 $themecolor:#F36D6D;
@@ -22,8 +21,14 @@ $themecolor:#F36D6D;
 *{
 	box-sizing:border-box;
 	color: #7A7A7A;
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
+@media only screen and (min-width: 993px){
+	.container {
+	    width: 76%;
+	}
+}
 li i{
 	color:#fff;
 }
@@ -108,7 +113,7 @@ nav a:hover{
 }
 
 .header{
-	height: 550px;
+	height: 400px;
 }
 
 
@@ -144,8 +149,8 @@ nav a:hover{
 .background{
 	position: absolute;
 	width:100%;
-	height: 550px;
-	background:url(background2.jpg) no-repeat center bottom fixed;
+	height: 400px;
+	background: #ee6e73;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -172,7 +177,7 @@ nav a:hover{
 	width:759px;
 	margin: 0 auto;
 	overflow: auto;
-	top:40%;
+	top:20%;
 	z-index: 4;
 	position: relative;
 	animation:top-fade-in 0.5s linear 0.5s both;;
