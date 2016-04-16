@@ -23,6 +23,7 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/1/edit
   def edit
+    @photos = @apartment.apart_photos
   end
 
   # POST /apartments

@@ -6,7 +6,7 @@
 		<%if user_signed_in?%>
 			<% if current_user.id == @lot.user_id %>
 				<%= link_to 'Edit', edit_lot_path(@lot),{'data-no-turbolink' => "",'class' => 'lot-edit'} %> 
-				<%= link_to 'Destroy', @lot, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'lot-delete'%>
+				<%= link_to 'Delete', @lot, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'lot-delete'%>
 			<% end %>
 		<% end %>
 		<br/>
@@ -21,25 +21,25 @@
 			<div class="col s3">
 				<div class="detail-icon">
 					<div class="fa fa-truck"></div>
-					<h4>Pick up only</h4>
+					<h4><%= @lot.pickup == true ? 'Pickup/Mail' : 'Delivery available' %></h4>
 				</div>
 			</div>
 			<div class="col s3">
 				<div class="detail-icon">
 					<div class="fa fa-phone"></div>
-					<h4>(888)-888-8888</h4>
+					<h4><%= @lot.contactPhone %></h4>
 				</div>
 			</div>
 			<div class="col s3">
 				<div class="detail-icon">
 					<div class="fa fa-envelope-o"></div>
-					<h4>luke@gmail.com</h4>
+					<h4><%= @lot.contactEmail %></h4>
 				</div>
 			</div>
 			<div class="col s3">
 				<div class="detail-icon">
 					<div class="fa fa-weixin"></div>
-					<h4>IcyLuke</h4>
+					<h4><%= @lot.contactWechat %></h4>
 				</div>
 			</div>		
 		</div>		
@@ -51,41 +51,6 @@
 
 <br/>
 <br/>
-<div id="blueimp-gallery" class="blueimp-gallery">
-    <!-- The container for the modal slides -->
-    <div class="slides"></div>
-    <!-- Controls for the borderless lightbox -->
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
-    <!-- The modal dialog, which will be used to wrap the lightbox content -->
-    <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body next"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left prev">
-                        <i class="glyphicon glyphicon-chevron-left"></i>
-                        Previous
-                    </button>
-                    <button type="button" class="btn btn-primary next">
-                        Next
-                        <i class="glyphicon glyphicon-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 <div class="lotgallery">
 <div id="links">
@@ -93,7 +58,7 @@
 	<% unless @first2.empty? %>
 	  <% @first2.each do |pic| %>
 	  	<div class="col s6 lotimg">
-    	<%= link_to image_tag(pic.image.url(:showpic)), pic.image.url(:huge), :data=> { :gallery =>"" } %>	
+    	<%= image_tag(pic.image.url(:large), class:"materialboxed") %>	
 		</div>
 	  <% end %>
 	<% end %>
@@ -101,7 +66,7 @@
 	<% unless @photos.empty? %>
 	  <% @photos.each do |pic| %>
 	  	<div class="col s4 lotimg">
-    	<%= link_to image_tag(pic.image.url(:medium)), pic.image.url(:huge), :data=> { :gallery =>"" } %>		
+    	<%= image_tag(pic.image.url(:large), class:"materialboxed") %>		
 		</div>
 
 	  <% end %>

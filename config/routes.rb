@@ -4,9 +4,14 @@ Rails.application.routes.draw do
       get 'admin'
     end
   end
-  resources :lots
+  resources :lots do
+    collection do
+      get 'admin'
+    end
+  end
   resources :testlots
   resources :photos
+  resources :apart_photos
   devise_for :users
   resources :testitems
   root "welcome#index"

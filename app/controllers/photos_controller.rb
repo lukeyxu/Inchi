@@ -11,10 +11,11 @@ class PhotosController < ApplicationController
 
 	def destroy
 		@photo = Photo.find(params[:id])
+		@lot = @photo.lot
 		@photo.destroy
 
 		respond_to do |format|
-		  format.html { redirect_to root_path }
+		  format.html { redirect_to @lot }
 		  format.js
 		end
 	end

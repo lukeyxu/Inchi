@@ -1,0 +1,2 @@
+module ApartPhotosHelper
+end

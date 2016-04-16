@@ -1,11 +1,15 @@
 class LotsController < ApplicationController
-  before_action :set_lot, only: [:show, :edit, :update, :destroy]
+  before_action :set_lot, only: [:show]
   before_action :belong_to, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except:[:index, :show]
 
   # GET /lots
   # GET /lots.json
   def index
+    @lots = Lot.all
+  end
+
+  def admin
     @lots = Lot.all
   end
 
@@ -106,6 +110,7 @@ class LotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lot_params
-      params.require(:lot).permit(:title, :description, :status, :category, :image)
+      params.require(:lot).permit(:title, :description, :status, :category, :image, :contactEmail, :contactPhone, :contactWechat,
+        :pickup, :lotAddress)
     end
 end

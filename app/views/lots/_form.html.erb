@@ -1,3 +1,6 @@
+<div class="form-new">
+<h3>Item Listing</h3>
+<br>
 <%= form_for @lot, html: {  multipart: true } do |f| %>
   <% if @lot.errors.any? %>
     <div id="error_explanation">
@@ -15,42 +18,39 @@
       <%= f.text_field :title, :class => 'validate', :placeholder => "Listing Name" %>
             <%= f.label :title %><br>
     </div>
-  </div>
-  <div class="row">
     <div class="input-field col s12">
     <%= f.text_area :description, :class => 'materialize-textarea' %>
             <%= f.label :description %><br>
     </div>
-  </div>
-  <div class="field form-group">
-    <%= f.label :status %><br>
-    <%= f.text_field :status, :class => 'form-control' %>
+    <div class="input-field col s12">
+      <%= f.text_field :lotAddress %>
+      <%= f.label :lotAddress,'Item(s) Address' %>
+    </div>
   </div>
   <div class="row">
-  <div class="field form-group">
-    <div class="file-field input-field col s6">
-      <div class="btn d-backcolor">
-        <span>Image</span>
-        <input type="file" name="lot[image]" id="lot_image">
+      <div class="input-field col s12">
+        <%= f.check_box :pickup,{'id '=> 'lot_pickup'} %>
+        <%= f.label :pickup, "Pick up only?" %>
       </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
+  </div>
+  <br>
+  <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :contactEmail %><br>
+        <%= f.text_field :contactEmail %>
       </div>
-    </div>
-  </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :photos, :class => 'control-label' %>
-    <div class="controls">
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
-    </div>
+      <div class="input-field col s6">
+        <%= f.label :contactPhone %><br>
+        <%= f.text_field :contactPhone %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.label :contactWechat %><br>
+        <%= f.text_field :contactWechat %>
+      </div>
   </div>
 
   <% if @photos %>
+  <h4>Photo Gallery</h4>
     <div class="row">
     <% @photos.each do |pic| %>
       <div class="col s3">
@@ -62,7 +62,8 @@
               <%=
                 link_to "Delete picture", pic,
                   :data => { :confirm => "Are you sure?" },
-                  :method => :delete
+                  :method => :delete,
+                  :class => 'lot-photo-delete'
                 %>
             </div>
           </div>
@@ -71,9 +72,28 @@
     </div>
   <% end %>
 
+  <div class="control-group">
+    <%= f.label :photos, :class => 'control-label' %>
+    <div class="controls">
+      <div class="row">
+        <% (1..8 - (@lot.photos.length)).each do |i| %>
+          <div class="file-field input-field col s6">
+            <div class="btn d-backcolor">
+              <span>Image</span>
+              <input type="file" name="images[]" id="images_" multiple="multiple">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
   <br>
   <div class="actions form-group">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
