@@ -7,15 +7,32 @@
 				<div class="dashone backcolor">
 					<div class="dash-inner">
 						<h3>Welcome back, <%= current_user.firstname %></h3>
-						
 					</div>
-				</div>				
+				</div>
+				<div class="col s12 dashtwo backcolor ">
+					<%= link_to 'lots/new', {'data-no-turbolink' => ""} do %>
+						<i class="large material-icons dash-icon ">work</i>
+						<h5>Sell new/used item</h5>
+					<% end %>
+				</div>
+				<div class="col s12 dashtwo backcolor">
+					<%= link_to 'apartments/new', {'data-no-turbolink' => ""} do %>
+						<i class="large material-icons dash-icon ">business</i>
+						<h5>List apartment info</h5>
+					<% end %>
+				</div>
+				<div class="col s12 dashtwo backcolor">
+					<%= link_to 'classfieds/new', {'data-no-turbolink' => ""} do %>
+						<i class="large material-icons dash-icon ">forum</i>
+						<h5>Need something</h5>
+					<% end %>
+				</div>						
 			</div>
 			<div class="col s12 m6">
 				<div class="dashthree">
 					<div class="col s12 recent-post backcolor" style="font-size: 20px;
     color: #8B8B8B;">Recent Posts</div>
-					<% @mylist.each do |list| %>
+					<% @lots.each do |list| %>
 					<div class="col s12 recent-post backcolor">
 						<%= link_to list do %>
 						<p class="left"><%= list.title %></p>
@@ -23,28 +40,25 @@
 						<% end %>
 					</div>
 					<% end %>
+					<% @apartments.each do |a| %>
+					<div class="col s12 recent-post backcolor">
+						<%= link_to a do %>
+						<p class="left"><%= a.title %></p>
+						<p class="right"><%= a.created_at.strftime('%F') %></p>
+						<% end %>
+					</div>
+					<% end %>
+					<% @classfieds.each do |c| %>
+					<div class="col s12 recent-post backcolor">
+						<%= link_to c do %>
+						<p class="left"><%= c.title %></p>
+						<p class="right"><%= c.created_at.strftime('%F') %></p>
+						<% end %>
+					</div>
+					<% end %>
 				</div>					
 			</div>	
-			<div class="col s12 m6">
-				<div class="col s12 dashtwo backcolor ">
-					<%= link_to 'lots/new', {'data-no-turbolink' => ""} do %>
-						<i class="large material-icons dash-icon ">work</i>
-						<h5>Sell item</h5>
-					<% end %>
-				</div>
-				<div class="col s6 dashtwo backcolor">
-					<%= link_to 'apartments/new', {'data-no-turbolink' => ""} do %>
-						<i class="large material-icons dash-icon ">business</i>
-						<h5>List apartment info</h5>
-					<% end %>
-				</div>
-				<div class="col s6 dashtwo backcolor"></div>			
-			</div>	
-			<div class="col s12 m6">
-				<div class="dashfour backcolor">
-					
-				</div>					
-			</div>	
+
 	</div>
 </div>
 </section>

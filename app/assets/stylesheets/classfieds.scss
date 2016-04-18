@@ -1,0 +1,67 @@
+// Place all the styles related to the classfieds controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.one-class{
+	border-bottom:1px solid #9A9A9A;
+	margin:10px;
+}
+
+.one-class-row{
+	margin-bottom:9px !important;
+}
+
+.class-des{
+	color:#6FB2D3;
+	a{
+		color:#7D87B1;
+	}
+}
+
+.class-field{
+
+}
+
+.class-poster{
+	.poster-name{
+		font-size: 18px;
+	}
+}
+
+.row .col.s8.class-wapper, .row .col.s3.class-wapper {
+	margin-right:10px;
+	background:white;
+	padding:10px 20px;
+	box-shadow:0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.class-contact{
+	div{
+		display: inline-block;
+		&:nth-child(1){
+			width:28px;
+		}
+	}
+}
+
+.class-category{
+	color:white;
+	display:inline-block;
+	padding:2px 7px;
+}
+
+.category-mates{
+	background:#E26170;
+}
+
+.category-buy{
+	background:#229ff1;
+}
+
+.category-help{
+	background:#3AD661;
+}
+
+.class-height{
+	min-height:500px;
+}

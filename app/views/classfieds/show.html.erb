@@ -1,0 +1,66 @@
+<section class="sect">
+<%= render 'nav' %>
+<br/>
+<div class="container">
+  <div class="row">
+    <div class="col s3 class-wapper">
+      <div class="class-poster">
+        <p class="poster-name">Luke</p>
+        <p>Posted on <%= @classfied.created_at.strftime('%F') %></p>
+      </div>
+      <div class="class-contact">
+          <div class="fa fa-envelope-o"></div>
+          <div><%= @classfied.email %></div>
+      </div>
+      <div class="class-contact">
+          <div class="fa fa-weixin"></div>
+          <div><%= @classfied.wechat %></div>
+      </div>
+      <div class="class-contact">
+          <div class="fa fa-phone"></div>
+          <div><%= @classfied.phone %></div>
+      </div> 
+    </div>
+    <div class="col s8 class-wapper class-height">
+      <h3><%= @classfied.title %></h3>
+      <p><%= @classfied.description %></p>
+    </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @classfied.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @classfied.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @classfied.category %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @classfied.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @classfied.email %>
+</p>
+
+<p>
+  <strong>Wechat:</strong>
+  <%= @classfied.wechat %>
+</p>
+
+<%= link_to 'Edit', edit_classfied_path(@classfied) %> |
+<%= link_to 'Back', classfieds_path %>

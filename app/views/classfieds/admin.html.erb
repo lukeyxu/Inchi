@@ -1,0 +1,32 @@
+<div class="container">
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Title</th>
+	      <th>Description</th>
+	      <th>Category</th>
+	      <th>Phone</th>
+	      <th>Email</th>
+	      <th>Wechat</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @classfieds.each do |classfied| %>
+	      <tr>
+	        <td><%= classfied.title %></td>
+	        <td><%= classfied.description %></td>
+	        <td><%= classfied.category %></td>
+	        <td><%= classfied.phone %></td>
+	        <td><%= classfied.email %></td>
+	        <td><%= classfied.wechat %></td>
+	        <td><%= link_to 'Show', classfied %></td>
+	        <td><%= link_to 'Edit', edit_classfied_path(classfied) %></td>
+	        <td><%= link_to 'Destroy', classfied, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	<%= link_to 'New Classfied', new_classfied_path %>
+</div>

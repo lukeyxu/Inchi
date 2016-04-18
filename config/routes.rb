@@ -9,6 +9,11 @@ Rails.application.routes.draw do
       get 'admin'
     end
   end
+  resources :classfieds do
+    collection do
+      get 'admin'
+    end
+  end
   resources :testlots
   resources :photos
   resources :apart_photos

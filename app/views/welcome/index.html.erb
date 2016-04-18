@@ -1,20 +1,21 @@
   <ul id="dropdown1" class="dropdown-content">
     <li><a href="/dashboard">My Listing</a></li>
-    <li><a href="#!">two</a></li>
     <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <li><a href="/logout" class="authnav">Sign out</a></li>
   </ul>
   <nav>
     <div class="nav-wrapper">
       <a href="/" class="brand-logo">Inchi</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/items">Item Market</a></li>
+        <li><a href="/apartments">Apartment Info</a></li>
+        <li><a href="/classfieds">Classfied</a></li>
         <%if !user_signed_in?%>
         <li><a href="/login" class="authnav">Log in</a></li>
         <li><a href="/signup" class="authnav">Sign up</a></li>
         <% end %>
         <%if user_signed_in?%>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.firstname %><i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a href="/logout" class="authnav">Sign out</a></li>
         <% end %>
       </ul>
     </div>
@@ -73,7 +74,7 @@
 		        <div class="col s12 m4">
 		          <div class="card medium">
 		            <div class="card-image">
-		              <a href="/items">
+		              <a href="/classfieds">
 		              <div class="img-wrapper">
 		              <%= image_tag("/assets/classified.jpg", class: "navimg") %>
 		              </div>

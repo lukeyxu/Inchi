@@ -1,0 +1,46 @@
+<div class="container">
+<%= form_for(@classfied) do |f| %>
+  <% if @classfied.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@classfied.errors.count, "error") %> prohibited this classfied from being saved:</h2>
+
+      <ul>
+      <% @classfied.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :title %>
+      <%= f.label :title %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.text_area :description, {'class'=>'materialize-textarea'} %>
+      <%= f.label :description %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.select(:category, [['Looking for playmates', 'Looking for playmates'], ['Want to buy', 'Want to buy'],['Ask for help','Ask for help'], ['Event', 'Event']]) %>
+      <%= f.label :category %>
+    </div>
+    <div class="input-field col s4">
+      <%= f.text_field :email %>
+      <%= f.label :email %>
+    </div>
+    <div class="input-field col s4">
+      <%= f.text_field :phone %>
+      <%= f.label :phone %>
+    </div> 
+    <div class="input-field col s4">
+      <%= f.text_field :wechat %>
+      <%= f.label :wechat %>
+    </div>     
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

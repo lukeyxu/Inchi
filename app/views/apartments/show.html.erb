@@ -69,24 +69,24 @@
         <div class="apart-contact">
           <div class="fa fa-envelope-o"></div>
           <div>E-mail:</div>
-          <div>luke@gmail.com</div>
+          <div><%= @apartment.contactemail %></div>
         </div>
         <div class="apart-contact">
           <div class="fa fa-weixin"></div>
           <div>WeChat:</div>
-          <div>IcyLuke</div>
+          <div><%= @apartment.contactwechat %></div>
         </div>
       </div>
       <div class="col s12 m6">
         <div class="apart-contact">
           <div class="fa fa-phone"></div>
           <div>Phone:</div>
-          <div>888-888-8888</div>
+          <div><%= @apartment.contactphone %></div>
         </div>
         <div class="apart-contact">
           <div class="fa fa-qq"></div>
           <div>QQ:</div>
-          <div>413841101</div>
+          <div><%= @apartment.contactqq %></div>
         </div>
       </div>      
     </div>
@@ -134,8 +134,7 @@
 
 
 <br/>
-<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
-<%= link_to 'Back', apartments_path %>
+
 <p id="notice"><%= notice %></p>
 
 

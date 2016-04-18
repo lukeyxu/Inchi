@@ -8,8 +8,9 @@
       <div class="col s6 m3  onelot">
         <div class="contentwrapper">
           <div class="imgwrapper">
-  <!--           <%= image_tag lot.image.url(:large) %> -->
-            <%= link_to image_tag(lot.image.url(:large)), lot %>
+          <% if lot.photos.size >0 %>]
+            <%= link_to image_tag(lot.photos.first.image.url(:large)), lot %>
+          <% end %>
           </div>
           <div class="deswrapper">
             <i>Post by <%= lot.user.firstname %> at <%= lot.created_at.strftime('%F') %></i>

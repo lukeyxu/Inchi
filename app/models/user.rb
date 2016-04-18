@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :testlots
   has_many :lots
   has_many :apartments
+  has_many :classfieds
 end
