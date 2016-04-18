@@ -1,3 +1,26 @@
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="/dashboard">My Listing</a></li>
+  <li class="divider"></li>
+  <li><a href="/logout" class="authnav">Sign out</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Inchi</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/items">Item Market</a></li>
+      <li><a href="/apartments">Apartment Info</a></li>
+      <li><a href="/classfieds">Classfied</a></li>
+      <%if !user_signed_in?%>
+      <li><a href="/login" class="authnav">Log in</a></li>
+      <li><a href="/signup" class="authnav">Sign up</a></li>
+      <% end %>
+      <%if user_signed_in?%>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.firstname %><i class="material-icons right">arrow_drop_down</i></a></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+<div class="signup-wrapper">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -32,8 +55,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :class => 'waves-effect waves-light btn d-backcolor'  %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>

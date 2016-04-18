@@ -31,8 +31,11 @@
 .row .col.s8.class-wapper, .row .col.s3.class-wapper {
 	margin-right:10px;
 	background:white;
-	padding:10px 20px;
+	padding:18px 20px;
 	box-shadow:0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	h3{
+		display: inline-block;
+	}
 }
 
 .class-contact{

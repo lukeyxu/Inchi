@@ -23,6 +23,12 @@
     </div>
     <div class="col s8 class-wapper class-height">
       <h3><%= @classfied.title %></h3>
+      <%if user_signed_in?%>
+        <% if current_user.id == @classfied.user_id %>
+          <%= link_to 'Edit', edit_classfied_path(@classfied),{'data-no-turbolink' => "",'class' => 'lot-edit'} %> 
+          <%= link_to 'Destroy', @classfied, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'lot-delete'%>
+        <% end %>
+      <% end %>
       <p><%= @classfied.description %></p>
     </div>
     </div>
@@ -30,37 +36,4 @@
 </div>
 </section>
 
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @classfied.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @classfied.description %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @classfied.category %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @classfied.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @classfied.email %>
-</p>
-
-<p>
-  <strong>Wechat:</strong>
-  <%= @classfied.wechat %>
-</p>
-
-<%= link_to 'Edit', edit_classfied_path(@classfied) %> |
-<%= link_to 'Back', classfieds_path %>
