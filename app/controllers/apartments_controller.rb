@@ -1,5 +1,6 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: [:show, :edit, :update, :destroy]
+  before_action :belong_to, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except:[:index, :show]
 
   # GET /apartments
@@ -80,6 +81,19 @@ class ApartmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_apartment
       @apartment = Apartment.find(params[:id])
+    end
+
+    def belong_to
+      @apartment = Apartment.find(params[:id])
+      if user_signed_in?
+        if current_user.id !=  @apartment.user_id
+          flash[:error] = "This apartment listing does not belong to you."
+          redirect_to  action: 'index'# halts request cycle
+        end
+      else
+        flash[:error] = "You must be logged in to access this section."
+        redirect_to  action: 'index'# halts request cycle
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

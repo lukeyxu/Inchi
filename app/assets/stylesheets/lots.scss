@@ -68,7 +68,7 @@
 .contentwrapper{
 	background: #fff;
 	height: 100%;
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	box-shadow: 0 1px 3px 0 rgba(28,38,53,.2),0 1px 1px 0 rgba(28,38,53,.14),0 2px 1px -1px rgba(28,38,53,.12);
 }
 
 .deswrapper{
@@ -91,8 +91,6 @@
 	color: #4D4D4D;
 }
 
-
-
 .imgwrapper img{
 	width:100%;
 }
@@ -108,7 +106,7 @@
 }
 
 .introcontent{
-	width: 60%;
+	width: 55%;
 	margin:0 auto;
 	height: 100%;
 	padding-bottom: 30px;
@@ -116,7 +114,7 @@
 
 .lotdetail{
 	margin:0 auto;
-	width: 60%;
+	width: 55%;
 	height: 600px;
 }
 
@@ -134,7 +132,7 @@
 }
 
 .lotimg{
-	height: 175px;
+	height: 200px;
 	overflow: hidden;
 	margin-bottom: 5px;
 	img{
